@@ -1,9 +1,12 @@
 package com.example.rickandmorty;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.squareup.picasso.Picasso;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -30,7 +33,8 @@ public class DetailActivity extends AppCompatActivity {
             gender.setText(getIntent().getStringExtra("gender"));
             status.setText(getIntent().getStringExtra("status"));
             species.setText(getIntent().getStringExtra("species"));
-            Picasso.get().load(getIntent().getIntExtra("image",1)).into(image);
+            String url = getIntent().getStringExtra("image");
+            Glide.with(this).load(url).into(image);
         }
     }
 }

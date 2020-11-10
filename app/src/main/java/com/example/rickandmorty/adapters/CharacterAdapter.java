@@ -1,28 +1,39 @@
 package com.example.rickandmorty.adapters;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.bumptech.glide.Glide;
 import com.example.rickandmorty.DetailActivity;
+import com.example.rickandmorty.MainActivity;
 import com.example.rickandmorty.R;
 import com.example.rickandmorty.models.Character;
 import com.squareup.picasso.Picasso;
+
+import java.io.ByteArrayOutputStream;
 import java.util.List;
+
 import androidx.recyclerview.widget.RecyclerView;
 
 public class CharacterAdapter extends RecyclerView.Adapter<CharacterAdapter.MyViewHolder> {
 
     private final List<Character> characterList;
+    private final static String IMAGE_URL = "https://rickandmortyapi.com/api/character/avatar/";
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         public TextView name;
         public TextView status;
         public TextView gender;
         public TextView species;
+        public TextView id;
         public ImageView image;
+
 
         public MyViewHolder(View view) {
             super(view);
@@ -32,6 +43,7 @@ public class CharacterAdapter extends RecyclerView.Adapter<CharacterAdapter.MyVi
             gender = view.findViewById(R.id.gender);
             image = view.findViewById(R.id.image);
             species = view.findViewById(R.id.species);
+            id = view.findViewById(R.id.id);
 
             view.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -42,10 +54,7 @@ public class CharacterAdapter extends RecyclerView.Adapter<CharacterAdapter.MyVi
                     intent.putExtra("gender", gender.getText().toString());
                     intent.putExtra("status", status.getText().toString());
                     intent.putExtra("species", species.getText().toString());
-                    //intent.putExtra(Intent.EXTRA_TEXT, image.getDrawable().toString());
-
-                    intent.putExtra("image", image.getImageAlpha());
-
+                    intent.putExtra("image", IMAGE_URL + id.getText().toString() + ".jpeg");
                     view2.getContext().startActivity(intent);
                 }
             });
@@ -69,7 +78,10 @@ public class CharacterAdapter extends RecyclerView.Adapter<CharacterAdapter.MyVi
         holder.status.setText("Status: " + character.status);
         holder.gender.setText("Gender: " + character.gender);
         holder.species.setText("Species: " + character.species);
-        Picasso.get().load(character.image).into(holder.image);
+        holder.id.setText(character.id);
+        Glide.with(holder.itemView.getContext()).load(character.image).into(holder.image);
+
+        //Picasso.get().load(character.image).into(holder.image);
     }
 
     @Override

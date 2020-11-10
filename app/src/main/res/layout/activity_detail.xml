@@ -20,34 +20,32 @@
 
         <ImageView
             android:id="@+id/image1"
-            android:background="@color/teal_700"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:scaleType="centerCrop"
-            android:foreground="@drawable/rounded_fg"/>
+            android:background="@color/teal_200"
+            android:scaleType="centerCrop" />
 
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/card_view_listText"
-        android:layout_width="303dp"
-        android:layout_height="165dp"
+        android:layout_width="295dp"
+        android:layout_height="213dp"
         android:layout_alignParentBottom="true"
         android:layout_centerInParent="true"
-        android:background="@color/teal_200"
+        android:layout_marginBottom="198dp"
         app:cardCornerRadius="30dp">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="229dp"
             android:background="@color/teal_200"
             android:orientation="vertical">
 
             <TextView
                 android:id="@+id/name1"
                 android:layout_width="match_parent"
-                android:layout_height="42dp"
-                android:background="@color/teal_700"
+                android:layout_height="48dp"
                 android:gravity="center"
                 android:textColor="@color/black"
                 android:textStyle="bold" />
@@ -55,23 +53,20 @@
             <TextView
                 android:id="@+id/gender1"
                 android:layout_width="match_parent"
-                android:layout_height="36dp"
-                android:gravity="center"
-                android:background="@color/teal_700" />
+                android:layout_height="58dp"
+                android:gravity="center" />
 
             <TextView
                 android:id="@+id/status1"
                 android:layout_width="match_parent"
-                android:layout_height="42dp"
-                android:gravity="center"
-                android:background="@color/teal_700" />
+                android:layout_height="50dp"
+                android:gravity="center" />
 
             <TextView
                 android:id="@+id/species1"
                 android:layout_width="match_parent"
-                android:layout_height="41dp"
-                android:gravity="center"
-                android:background="@color/teal_700" />
+                android:layout_height="52dp"
+                android:gravity="center" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 

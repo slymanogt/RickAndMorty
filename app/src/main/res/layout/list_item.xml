@@ -49,6 +49,15 @@
                     android:gravity="center"
                     tools:ignore="MissingConstraints" />
 
+                <TextView
+                    android:id="@+id/id"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:textColor="@color/black"
+                    android:gravity="center"
+                    tools:ignore="MissingConstraints"
+                    tools:layout_editor_absoluteX="0dp"
+                    tools:layout_editor_absoluteY="56dp"  />
 
                 <TextView
                     android:id="@+id/gender"

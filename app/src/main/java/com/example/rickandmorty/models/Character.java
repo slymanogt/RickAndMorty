@@ -16,4 +16,6 @@ public class Character {
     public String species;
     @SerializedName("image")
     public String image;
+    @SerializedName("id")
+    public String id;
 }
